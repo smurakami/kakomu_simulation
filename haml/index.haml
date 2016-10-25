@@ -6,82 +6,45 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     / Bootstrap
     %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    %link{ type: "text/css", rel: "stylesheet", href: "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" }
+    / Include all compiled plugins (below), or include individual files as needed
+    %script{ type: "text/javascript", src: "http://code.jquery.com/jquery-1.9.1.min.js" }
+    %script{ src: "js/bootstrap.min.js"}
+    %script{ type: "text/javascript", src: "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js" }
+    %script{ type: "text/javascript", src: "js/main.js" }
     / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     / WARNING: Respond.js doesn't work if you view the page via file://
     /[if lt IE 9]
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   %body
-    %nav.navbar.navbar-inverse{:role => "navigation"}
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{:href => "#"} Brand
-      / Collect the nav links, forms, and other content for toggling
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        %ul.nav.navbar-nav
-          %li.active
-            %a{:href => "#"} Link
-          %li
-            %a{:href => "#"} Link
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Dropdown
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{:href => "#"} Action
-              %li
-                %a{:href => "#"} Another action
-              %li
-                %a{:href => "#"} Something else here
-              %li.divider
-              %li
-                %a{:href => "#"} Separated link
-              %li.divider
-              %li
-                %a{:href => "#"} One more separated link
-        %form.navbar-form.navbar-left{:role => "search"}
-          .form-group
-            %input.form-control{:placeholder => "Search", :type => "text"}/
-          %button.btn.btn-default{:type => "submit"} Submit
-        %ul.nav.navbar-nav.navbar-right
-          %li
-            %a{:href => "#"} Link
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Dropdown
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{:href => "#"} Action
-              %li
-                %a{:href => "#"} Another action
-              %li
-                %a{:href => "#"} Something else here
-              %li.divider
-              %li
-                %a{:href => "#"} Separated link
-      / /.navbar-collapse
-    .jumbotron.container
-      %h1 Hello, world!
-      %p ...
-      %p
-        %a.btn.btn-primary.btn-lg{:role => "button"} Learn more
-    .btn-group{"data-toggle" => "button"}
-      .btn
-        %input{:type => "radio"}/
-        hoge
-      .btn
-        %input{:type => "radio"}/
-        hoge
-    / jQuery (necessary for Bootstrap's JavaScript plugins)
-    %script{:src => "https://code.jquery.com/jquery.js"}
-    / Include all compiled plugins (below), or include individual files as needed
-    %script{:src => "js/bootstrap.min.js"}
-    :javascript
-      $(".btn").button();
+    .container
+      %h1 カコムシミュレーション
+      %form.parameters
+        .row
+          %label.col-xs-2
+            床長辺(m)
+          .col-xs-10
+            %input.floor_w.form-control{ value: 16 }
+        .row
+          %label.col-xs-2
+            床短辺(m)
+          .col-xs-10
+            %input.floor_h.form-control{ value: 9 }
+        .row
+          %label.col-xs-2
+            壁高さ(m)
+          .col-xs-10
+            %input.wall_h.form-control{ value: 3 }
+        .row
+          %label.col-xs-2
+            カメラ高さ(m)
+          .col-xs-10
+            %input.camera_h.form-control{ value: 7 }
+      #slider
+
+      #main
+        .frame
+          .wall
+            .floor
